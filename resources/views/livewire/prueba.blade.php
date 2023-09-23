@@ -3,7 +3,9 @@
     <!--
       Mobile menu
   
-      Off-canvas menu for mobile, show/hide based on off-canvas menu state.
+      ----------------------------------MENU MOVIL NO TOCAR ---------------------------------------------------
+      --------------------------------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------------------------------
     -->
     <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
       <!--
@@ -15,6 +17,10 @@
         Leaving: "transition-opacity ease-linear duration-300"
           From: "opacity-100"
           To: "opacity-0"
+        -------------------------------------------------MENU MOVIL NO TOCAR----------------------------------
+         --------------------------------------------------------------------------------------------                              
+        ----------------------------------------------------------------------------------------------
+
       -->
       <div class="fixed inset-0 bg-black bg-opacity-25"></div>
   
@@ -85,7 +91,7 @@
                     <a href="#" class="-m-2 block p-2 text-gray-500">Dresses</a>
                   </li>
                   <li class="flow-root">
-                    <a href="#" class="-m-2 block p-2 text-gray-500">Pants</a>
+                    <a x-bind:href="{{route('producto')}}" class="-m-2 block p-2 text-gray-500">Pants</a>
                   </li>
                   <li class="flow-root">
                     <a href="#" class="-m-2 block p-2 text-gray-500">Denim</a>
@@ -182,10 +188,10 @@
                     <a href="#" class="-m-2 block p-2 text-gray-500">Tops</a>
                   </li>
                   <li class="flow-root">
-                    <a href="#" class="-m-2 block p-2 text-gray-500">Pants</a>
+                    <a href="{{route('producto')}}" class="-m-2 block p-2 text-gray-500">Pants</a>
                   </li>
                   <li class="flow-root">
-                    <a href="#" class="-m-2 block p-2 text-gray-500">Sweaters</a>
+                    <a href="{{route('producto')}}" class="-m-2 block p-2 text-gray-500">Sweaters</a>
                   </li>
                   <li class="flow-root">
                     <a href="#" class="-m-2 block p-2 text-gray-500">T-Shirts</a>
@@ -246,10 +252,10 @@
   
           <div class="space-y-6 border-t border-gray-200 px-4 py-6">
             <div class="flow-root">
-              <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Company</a>
+              <a href="{{route('producto')}}" class="-m-2 block p-2 font-medium text-gray-900">Contacto</a>
             </div>
             <div class="flow-root">
-              <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Stores</a>
+              <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Informacion</a>
             </div>
           </div>
   
@@ -272,10 +278,39 @@
         </div>
       </div>
     </div>
+    
+
+   <!--   
   
-    <header class="relative bg-white">
+     -------------------------------------FINAL MENU MOVIL----------------------------------------------
+     ------------------------------------------------------------------------------------------------
       
-  
+    -->
+
+    
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <header class="relative bg-white">
       <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="border-b border-gray-200">
           <div class="flex h-16 items-center">
@@ -290,15 +325,15 @@
   
             <!-- Logo -->
             <div class="ml-4 flex lg:ml-0">
-              <a href="#">
-                <span class="sr-only">Your Company</span>
+              <a href="/">
+                
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
               </a>
             </div>
   
 
 
-            {{-- MENU DE OPCIONES --}}
+            {{-- --------------------------------------------------MENU DE OPCIONES --------------------------------------}}
             <!-- Flyout menus -->
             <div class="hidden lg:ml-8 lg:block lg:self-stretch" > 
               
@@ -306,16 +341,16 @@
                 <div  class="flex h-full space-x-8" >
 
 
-                {{-- MENU DE OPCIONES MUJERES --}}
+                {{-- MOCULO DE CATALOGO  --}}
                 {{-- x-on:mouseenter="open=true" x-on:mouseleave.away="open=false"  --}}
-                <div  class="flex" x-data="{open:false}"  x-on:mouseleave.self="open=false">
+                <div  class="flex  " x-data="{open:false}"  x-on:mouseleave.self="open=false">
                   <div  x-on:click="open=true" class="relative flex">
                     <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                    <button  type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Mujer</button>
+                    <button  type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Catalogo</button>
                   </div>
   
                  
-                  <div x-show="open"  class="absolute inset-x-0 top-full text-sm text-gray-500">
+                  <div  x-show="open"  class="absolute inset-x-0 top-full text-sm text-gray-500 fixed z-10">
                     <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
                     <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
   
@@ -353,39 +388,50 @@
                           </div>
                           <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                             <div>
-                              <p id="Clothing-heading" class="font-medium text-gray-900">Clothing</p>
+                              <p id="Clothing-heading" class="font-medium text-gray-900">Hombre</p>
                               <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Tops</a>
+                                  <a href="#" class="hover:text-gray-800">Pantalon</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Dresses</a>
+                                  <a href="#" class="hover:text-gray-800">Polera</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Pants</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Denim</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Sweaters</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">T-Shirts</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Jackets</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Activewear</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Browse All</a>
-                                </li>
+                                  <a href="#" class="hover:text-gray-800">Camisa</a>
+                                </li>                               
                               </ul>
                             </div>
-                            
-                            
+                             
+                            <div>
+                              <p id="Accessories-heading" class="font-medium text-gray-900">Mujer</p>
+                              <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Camisa</a>
+                                </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Polera</a>
+                                </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Pantalon</a>
+                                </li>
+                               
+                              </ul>
+                            </div>
+                             
+                            <div>
+                              <p id="Accessories-heading" class="font-medium text-gray-900">Admin</p>
+                              <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Productos</a>
+                               
+                              </ul>
+                            </div>
+
+
+
+
+
                           </div>
                         </div>
                       </div>
@@ -395,17 +441,11 @@
 
 
 
-                  {{-- HOMBRES 
-                    
-                     MENU
-                    
-                    
-                    
-                    --}}
+                  {{-- HOMBRES   --}}
                 <div class="flex" x-data="{open:false}"  x-on:mouseleave.self="open=false">
                   <div  class="relative flex"  class="flex">
                     <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                    <button  x-on:click="open=true" type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Men</button>
+                    <button  x-on:click="open=true" type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Suministro</button>
                   </div>
   
                   <!--
@@ -418,7 +458,7 @@
                       From: "opacity-100"
                       To: "opacity-0"
                   -->
-                  <div  x-show="open"   class="absolute inset-x-0 top-full text-sm text-gray-500">
+                  <div  x-show="open"   class="absolute inset-x-0 top-full text-sm text-gray-500 fixed z-10" >
                     <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
                     <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
   
@@ -428,7 +468,7 @@
                           <div class="col-start-2 grid grid-cols-2 gap-x-8">
                             <div class="group relative text-base sm:text-sm">
                               <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="Drawstring top with elastic loop closure and textured interior padding." class="object-cover object-center">
+                                <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-cover object-center">
                               </div>
                               <a href="#" class="mt-6 block font-medium text-gray-900">
                                 <span class="absolute inset-0 z-10" aria-hidden="true"></span>
@@ -449,29 +489,18 @@
                           </div>
                           <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                             <div>
-                              <p id="Clothing-heading" class="font-medium text-gray-900">Clothing</p>
+                              <p id="Clothing-heading" class="font-medium text-gray-900">Suministro</p>
                               <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Tops</a>
+                                  <a href="#" class="hover:text-gray-800">Proveedores</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Pants</a>
+                                  <a href="#" class="hover:text-gray-800">Telefonos_Proveedores</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Sweaters</a>
+                                  <a href="#" class="hover:text-gray-800">Nota_Compra</a>
                                 </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">T-Shirts</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Jackets</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Activewear</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Browse All</a>
-                                </li>
+                                
                               </ul>
                             </div>
                             
@@ -482,26 +511,107 @@
                     </div>
                   </div>
                 </div>   
+
+
+
+                <div class="flex" x-data="{open:false}"  x-on:mouseleave.self="open=false">
+                  <div  class="relative flex"  class="flex">
+                    <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
+                    <button  x-on:click="open=true" type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Ventas</button>
+                  </div>
   
-                <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
-                <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+                  <!--
+                    'Men' flyout menu, show/hide based on flyout menu state.
+  
+                    Entering: "transition ease-out duration-200"
+                      From: "opacity-0"
+                      To: "opacity-100"
+                    Leaving: "transition ease-in duration-150"
+                      From: "opacity-100"
+                      To: "opacity-0"
+                  -->
+                  <div  x-show="open"   class="absolute inset-x-0 top-full text-sm text-gray-500 fixed z-10" >
+                    <!-- Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow -->
+                    <div class="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
+  
+                    <div class="relative bg-white">
+                      <div class="mx-auto max-w-7xl px-8">
+                        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+                          <div class="col-start-2 grid grid-cols-2 gap-x-8">
+                            <div class="group relative text-base sm:text-sm">
+                              <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                                <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." class="object-cover object-center">
+                              </div>
+                              <a href="#" class="mt-6 block font-medium text-gray-900">
+                                <span class="absolute inset-0 z-10" aria-hidden="true"></span>
+                                New Arrivals
+                              </a>
+                              <p aria-hidden="true" class="mt-1">Shop now</p>
+                            </div>
+                            <div class="group relative text-base sm:text-sm">
+                              <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                                <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt." class="object-cover object-center">
+                              </div>
+                              <a href="#" class="mt-6 block font-medium text-gray-900">
+                                <span class="absolute inset-0 z-10" aria-hidden="true"></span>
+                                Artwork Tees
+                              </a>
+                              <p aria-hidden="true" class="mt-1">Shop now</p>
+                            </div>
+                          </div>
+                          <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
+                            <div>
+                              <p id="Clothing-heading" class="font-medium text-gray-900">Ventas</p>
+                              <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Nota_Venta</a>
+                                </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Clientes</a>
+                                </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Telefono_Cliente</a>
+                                </li>
+                                
+                              </ul>
+                            </div>
+                            
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>   
+
+
+
+
+
+
+  
+                <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Contacto</a>
+                <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Informacion</a>
               </div>
             </div>
-  
+              
+
+
+
+
+            {{-- CUENTAS --}}
             <div class="ml-auto flex items-center">
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
                 <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Crear cuenta</a>
               </div>
-  
-              <div class="hidden lg:ml-8 lg:flex">
-                <a href="#" class="flex items-center text-gray-700 hover:text-gray-800">
-                  <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" class="block h-auto w-5 flex-shrink-0">
-                  <span class="ml-3 block text-sm font-medium">CAD</span>
-                  <span class="sr-only">, change currency</span>
-                </a>
-              </div>
+           
+             
+
+
+
+
   
               <!-- Search -->
               <div class="flex lg:ml-6">
