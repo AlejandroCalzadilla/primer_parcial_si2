@@ -35,3 +35,5 @@ Route::get('producto',function(){
     return view('producto');
   
   })->name('producto');
+
+   

@@ -21,8 +21,8 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100 white:bg-gray-900">
-            @livewire('navigation')
-
+            {{-- @livewire('navigation') --}}
+            @livewire('prueba') 
        
             <!-- Page Content -->
             <main>
