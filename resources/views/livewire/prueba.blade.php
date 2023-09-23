@@ -1,5 +1,5 @@
 
-<div class="bg-white">
+<div class="bg-white" x-data="{carrito:false,res:false}" >
     <!--
       Mobile menu
   
@@ -7,7 +7,7 @@
       --------------------------------------------------------------------------------------------------------
       --------------------------------------------------------------------------------------------------------
     -->
-    <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+    <div x-show="res"   class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
       <!--
         Off-canvas menu backdrop, show/hide based on off-canvas menu state.
   
@@ -22,7 +22,7 @@
         ----------------------------------------------------------------------------------------------
 
       -->
-      <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+      <!--<div  class="fixed inset-0 bg-black bg-opacity-25"></div> -->
   
       <div class="fixed inset-0 z-40 flex">
         <!--
@@ -35,9 +35,9 @@
             From: "translate-x-0"
             To: "-translate-x-full"
         -->
-        <div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-          <div class="flex px-4 pb-2 pt-5">
-            <button type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+        <div   class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+          <div   class="flex px-4 pb-2 pt-5">
+            <button x-on:click="res=false" type="button" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
               <span class="absolute -inset-0.5"></span>
               <span class="sr-only">Close menu</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
@@ -47,7 +47,7 @@
           </div>
   
           <!-- Links -->
-          <div class="mt-2">
+          <div   class="mt-2">
             <div class="border-b border-gray-200">
               <div class="-mb-px flex space-x-8 px-4" aria-orientation="horizontal" role="tablist">
                 <!-- Selected: "border-indigo-600 text-indigo-600", Not Selected: "border-transparent text-gray-900" -->
@@ -277,6 +277,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
     
 
@@ -315,10 +317,10 @@
         <div class="border-b border-gray-200">
           <div class="flex h-16 items-center">
             <!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-            <button type="button" class="relative rounded-md bg-white p-2 text-gray-400 lg:hidden">
+            <button x-on:click="res=true" type="button" class="relative rounded-md bg-white p-2 text-gray-400 lg:hidden">
               <span class="absolute -inset-0.5"></span>
-              <span class="sr-only">Open menu</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <span   class="sr-only">Open1 menu</span>
+              <svg  class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
             </button>
@@ -424,7 +426,13 @@
                               <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                 <li class="flex">
                                   <a href="#" class="hover:text-gray-800">Productos</a>
-                               
+                                </li> 
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Marca</a>
+                                </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Talla</a>
+                                </li>                               
                               </ul>
                             </div>
 
@@ -572,6 +580,9 @@
                                 <li class="flex">
                                   <a href="#" class="hover:text-gray-800">Telefono_Cliente</a>
                                 </li>
+                                <li class="flex">
+                                  <a href="#" class="hover:text-gray-800">Factura</a>
+                                </li>
                                 
                               </ul>
                             </div>
@@ -624,7 +635,7 @@
               </div>
   
               <!-- Cart -->
-              <div class="ml-4 flow-root lg:ml-6">
+              <div x-on:click="carrito=true" class="ml-4 flow-root lg:ml-6">
                 <a href="#" class="group -m-2 flex items-center p-2">
                   <svg class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
@@ -633,10 +644,148 @@
                   <span class="sr-only">items in cart, view bag</span>
                 </a>
               </div>
+
+
+
             </div>
           </div>
         </div>
       </nav>
     </header>
+
+
+
+    <div x-show="carrito"  class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+      <!--
+        Background backdrop, show/hide based on slide-over state.
+    
+        Entering: "ease-in-out duration-500"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "ease-in-out duration-500"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    
+      <div class="fixed inset-0 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <!--
+              Slide-over panel, show/hide based on slide-over state.
+    
+              Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+                From: "translate-x-full"
+                To: "translate-x-0"
+              Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+                From: "translate-x-0"
+                To: "translate-x-full"
+            -->
+            <div class="pointer-events-auto w-screen max-w-md">
+              <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                  <div class="flex items-start justify-between">
+                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compra</h2>
+                    <div class="ml-3 flex h-7 items-center">
+                      <button x-on:click="carrito=false"  type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Close panel</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+    
+                  <div class="mt-8">
+                    <div class="flow-root">
+                      <ul role="list" class="-my-6 divide-y divide-gray-200">
+                        <li class="flex py-6">
+                          <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
+                          </div>
+    
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div class="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href="#">Throwback Hip Bag</a>
+                                </h3>
+                                <p class="ml-4">$90.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Salmon</p>
+                            </div>
+                            <div class="flex flex-1 items-end justify-between text-sm">
+                              <p class="text-gray-500">Qty 1</p>
+    
+                              <div class="flex">
+                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="flex py-6">
+                          <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="h-full w-full object-cover object-center">
+                          </div>
+    
+                          <div class="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div class="flex justify-between text-base font-medium text-gray-900">
+                                <h3>
+                                  <a href="#">Medium Stuff Satchel</a>
+                                </h3>
+                                <p class="ml-4">$32.00</p>
+                              </div>
+                              <p class="mt-1 text-sm text-gray-500">Blue</p>
+                            </div>
+                            <div class="flex flex-1 items-end justify-between text-sm">
+                              <p class="text-gray-500">Qty 1</p>
+    
+                              <div class="flex">
+                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+    
+                        <!-- More products... -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                  <div class="flex justify-between text-base font-medium text-gray-900">
+                    <p>Subtotal</p>
+                    <p>$262.00</p>
+                  </div>
+                  <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                  <div class="mt-6">
+                    <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                  </div>
+                  <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                    <p>
+                      or
+                      <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
+                        Continue Shopping
+                        <span aria-hidden="true"> &rarr;</span>
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+
+
+
+
   </div>
   
