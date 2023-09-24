@@ -593,62 +593,107 @@
                       </div>
                     </div>
                   </div>
-                </div>   
-
-
-
-
-
-
-  
+                </div>    
                 <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Contacto</a>
                 <a href="#" class="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Informacion</a>
               </div>
             </div>
-              
+            
 
 
-
-
-            {{-- CUENTAS --}}
-            <div class="ml-auto flex items-center">
-              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Crear cuenta</a>
-              </div>
-           
              
 
+            {{-- CUENTAS --}}
+              @auth
+
+              
+                
+                             <div class="ml-auto flex items-endr"  x-data="{openn : false}">
+                                <div>
+                                      <button x-on:click="openn=true" type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white     focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                              <span class="absolute -inset-1.5"></span>
+                                <img class="h-8 w-8 rounded-full" src="{{auth()->user()->profile_photo_url}}" alt="">
+                                  </button>
+                                </div>
+
+                              <div x-show="openn" x-on:click.away="openn=false" class="absolute right-10 z-10 mt-10 w-48 origin-bottom-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                <!-- Active: "bg-gray-100", Not Active: "" -->
+                                <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">tu perfil</a>
+                          
+                        
+                                  <form method="POST" action="{{ route('logout') }}" x-data>
+                                  @csrf
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2"  @click.prevent="$root.submit();">
+                                    Sign out</a>
+                                </form>
+                              </div>
+                        </div> 
+                          
 
 
 
-  
-              <!-- Search -->
-              <div class="flex lg:ml-6">
-                <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
-                  <span class="sr-only">Search</span>
-                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                  </svg>
-                </a>
-              </div>
-  
-              <!-- Cart -->
-              <div x-on:click="carrito=true" class="ml-4 flow-root lg:ml-6">
-                <a href="#" class="group -m-2 flex items-center p-2">
-                  <svg class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                  </svg>
-                  <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                  <span class="sr-only">items in cart, view bag</span>
-                </a>
-              </div>
+
+
+                                  <div  class="ml-4 flow-root lg:ml-6" x-on:click="carrito=true">
+                                    <a href="#" class="group -m-2 flex items-center p-2">
+                                <svg class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                </svg>
+                                <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                                <span class="sr-only">items in cart, view bag</span>
+                              </a>
+                            </div>
+
+                            <!-- Search -->
+                            <div class="flex lg:ml-6">
+                              <a href="#" class="p-2 text-gray-400 hover:text-gray-500">
+                                <span class="sr-only">Search</span>
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                              </a>
+                            </div>
+                          
+             
+                
+                 
+             
+                    
+
+                      @else  
+                      <div class="ml-auto flex items-center">
+                        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                          <a href="{{route('login')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+                          <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                          <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Crear cuenta</a>
+                        </div> 
+                      </div>    
+
+                      @endauth
+                    
 
 
 
-            </div>
+
+
+
+
+
+
+
+
+
+            
+
+            
           </div>
+                 
+
+
+
+
+
+
         </div>
       </nav>
     </header>
