@@ -389,33 +389,19 @@
                             </div>
                           </div>
                           <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-                            <div>
-                              <p id="Clothing-heading" class="font-medium text-gray-900">Hombre</p>
-                              <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Pantalon</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Polera</a>
-                                </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Camisa</a>
-                                </li>                               
-                              </ul>
-                            </div>
+                       
                              
                             <div>
-                              <p id="Accessories-heading" class="font-medium text-gray-900">Mujer</p>
+                              <p id="Accessories-heading" class="font-medium text-gray-900">Categorias</p>
                               <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Camisa</a>
+                                  <a href="#" class="hover:text-gray-800">Zapatos</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Polera</a>
+                                  <a href="#" class="hover:text-gray-800">Ropa</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Pantalon</a>
+                                  <a href="#" class="hover:text-gray-800">Accesorios</a>
                                 </li>
                                
                               </ul>
@@ -424,15 +410,17 @@
                             <div>
                               <p id="Accessories-heading" class="font-medium text-gray-900">Admin</p>
                               <ul role="list" aria-labelledby="Accessories-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Productos</a>
-                                </li> 
+                               
                                 <li class="flex">
                                   <a href="#" class="hover:text-gray-800">Marca</a>
                                 </li>
+                                
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Talla</a>
-                                </li>                               
+                                  <a href="{{route('categorias.index')}}" class="hover:text-gray-800">categoria</a>
+                                </li>
+                                
+
+
                               </ul>
                             </div>
 
@@ -453,7 +441,7 @@
                 <div class="flex" x-data="{open:false}"  x-on:mouseleave.self="open=false">
                   <div  class="relative flex"  class="flex">
                     <!-- Item active: "border-indigo-600 text-indigo-600", Item inactive: "border-transparent text-gray-700 hover:text-gray-800" -->
-                    <button  x-on:click="open=true" type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Suministro</button>
+                    <button  x-on:click="open=true" type="button" class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out" aria-expanded="false">Sucursales</button>
                   </div>
   
                   <!--
@@ -497,16 +485,16 @@
                           </div>
                           <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
                             <div>
-                              <p id="Clothing-heading" class="font-medium text-gray-900">Suministro</p>
+                            
                               <ul role="list" aria-labelledby="Clothing-heading" class="mt-6 space-y-6 sm:mt-4 sm:space-y-4">
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Proveedores</a>
+                                  <a href="#" class="hover:text-gray-800">Sucursal</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Telefonos_Proveedores</a>
+                                  <a href="#" class="hover:text-gray-800">Stock_Sucursal</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Nota_Compra</a>
+                                  <a href="#" class="hover:text-gray-800">empleados</a>
                                 </li>
                                 
                               </ul>
@@ -575,14 +563,12 @@
                                   <a href="#" class="hover:text-gray-800">Nota_Venta</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Clientes</a>
+                                  <a href="#" class="hover:text-gray-800">Reserva</a>
                                 </li>
                                 <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Telefono_Cliente</a>
+                                  <a href="#" class="hover:text-gray-800">Facturas</a>
                                 </li>
-                                <li class="flex">
-                                  <a href="#" class="hover:text-gray-800">Factura</a>
-                                </li>
+                               
                                 
                               </ul>
                             </div>
@@ -616,7 +602,7 @@
                                   </button>
                                 </div>
 
-                              <div x-show="openn" x-on:click.away="openn=false" class="absolute right-10 z-10 mt-10 w-48 origin-bottom-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                              <div x-show="openn" x-on:click.away="openn=false" class="absolute right-30 z-10 mt-10 w-48 origin-bottom-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <a href="{{route('profile.show')}}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">tu perfil</a>
                           
@@ -665,7 +651,7 @@
                         <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                           <a href="{{route('login')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
                           <span class="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                          <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Crear cuenta</a>
+                          <a href="{{route('register')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Crear cuenta</a>
                         </div> 
                       </div>    
 

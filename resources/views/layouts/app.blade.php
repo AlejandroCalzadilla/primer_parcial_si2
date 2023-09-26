@@ -25,7 +25,7 @@
             @livewire('prueba') 
        
             <!-- Page Content -->
-            <main>
+            <main >
                 {{ $slot }}
             </main>
         </div>
